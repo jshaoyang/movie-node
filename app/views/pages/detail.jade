@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+	.container
+		.row
+				//- 两边布局
+			.col-md-7
+				embed(src="#{movie.flash}",allowFullScreen="true",quality="high", width="720", height="600",align="middle",type="application/x-shockwave-flash")
+				.panel.panel-default
+					.panel-heading
+						h3 评论区
+					.panel-body
+						ul.media-list
+							each item in comments
+								li.media
+									.pull-left
+										a.comment(href="#comments",data-cid="#{item._id}",data-tid="#{item.from._id}")
+											img.media-object(src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAgMTAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik03MS42MzMsMi4yODFIMjguMzY3Yy00LjIxMiwwLTcuNjM1LDMuNDIyLTcuNjM1LDcuNjM1djgwLjE2OGMwLDQuMjEzLDMuNDIzLDcuNjM1LDcuNjM1LDcuNjM1aDQzLjI2Ng0KCQljNC4yMTMsMCw3LjYzNS0zLjQyMiw3LjYzNS03LjYzNVY5LjkxNkM3OS4yNjgsNS43MDMsNzUuODQ2LDIuMjgxLDcxLjYzMywyLjI4MXogTTQzLjAwMSw5LjI1NGMwLTEuMDQzLDAuODQtMS44ODMsMS44ODQtMS44ODMNCgkJaDEwLjIzYzEuMDQzLDAsMS44ODQsMC44NCwxLjg4NCwxLjg4M3YwLjA1MWMwLDEuMDQzLTAuODQxLDEuODgzLTEuODg0LDEuODgzaC0xMC4yM2MtMS4wNDQsMC0xLjg4NC0wLjg0LTEuODg0LTEuODgzVjkuMjU0eg0KCQkgTTUwLDk0Ljg1NWMtMi4yNzgsMC00LjEzNi0xLjg1Ny00LjEzNi00LjEzNWMwLTIuMjc5LDEuODU3LTQuMTM1LDQuMTM2LTQuMTM1YzIuMjc3LDAsNC4xMzYsMS44NTUsNC4xMzYsNC4xMzUNCgkJQzU0LjEzNiw5Mi45OTgsNTIuMjc3LDk0Ljg1NSw1MCw5NC44NTV6IE03Mi45MDUsODIuNDQ5YzAsMC42OTktMC41NzMsMS4yNzEtMS4yNzIsMS4yNzFIMjguMzY3Yy0wLjcsMC0xLjI3Mi0wLjU3Mi0xLjI3Mi0xLjI3MQ0KCQlWMTcuNTUxYzAtMC43MDEsMC41NzItMS4yNzMsMS4yNzItMS4yNzNoNDMuMjY2YzAuNjk5LDAsMS4yNzIsMC41NzIsMS4yNzIsMS4yNzNWODIuNDQ5eiIvPg0KCTxwYXRoIGQ9Ik01MCwzNC4wOTRjLTguNDMzLDAtMTUuMjcxLDYuODM2LTE1LjI3MSwxNS4yN1M0MS41NjcsNjQuNjMzLDUwLDY0LjYzM3MxNS4yNzEtNi44MzYsMTUuMjcxLTE1LjI3DQoJCVM1OC40MzMsMzQuMDk0LDUwLDM0LjA5NHogTTUwLDYyLjA4OGMtNy4wMjgsMC0xMi43MjYtNS42OTUtMTIuNzI2LTEyLjcyNVM0Mi45NzIsMzYuNjM5LDUwLDM2LjYzOXMxMi43MjUsNS42OTUsMTIuNzI1LDEyLjcyNQ0KCQlTNTcuMDI4LDYyLjA4OCw1MCw2Mi4wODh6Ii8+DQoJPHBhdGggZD0iTTU1Ljg2NSw0OC43MzRsLTQuOTE2LTAuNTQ1bC0yLjI4OC02Ljg2M2MtMC4yMjMtMC42NjYtMC45MzctMS4wMjktMS42MDgtMC44MDVjLTAuNjY3LDAuMjIzLTEuMDI2LDAuOTQxLTAuODA1LDEuNjA5DQoJCWwyLjU0NSw3LjYzNWMwLjE1NywwLjQ3MSwwLjU3MywwLjgwOSwxLjA2NywwLjg2M2w1LjcyNywwLjYzN2MwLjA0NiwwLjAwNCwwLjA5MywwLjAwNiwwLjE0MSwwLjAwNmMwLjY0LDAsMS4xOTEtMC40OCwxLjI2NC0xLjEzMw0KCQlDNTcuMDY4LDQ5LjQzOSw1Ni41NjUsNDguODEzLDU1Ljg2NSw0OC43MzR6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==" style="width:64px;height:64px")
+									.media-body
+										h4.media-heading #{item.from.name}
+										p #{item.content}
+										if item.reply && item.reply.length > 0
+											each reply in item.reply
+												.media
+													.pull-left
+														a.comment(href="#comments",data-cid="#{item._id}",data-tid="#{reply.from._id}")
+															img.media-object(src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAgMTAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik03MS42MzMsMi4yODFIMjguMzY3Yy00LjIxMiwwLTcuNjM1LDMuNDIyLTcuNjM1LDcuNjM1djgwLjE2OGMwLDQuMjEzLDMuNDIzLDcuNjM1LDcuNjM1LDcuNjM1aDQzLjI2Ng0KCQljNC4yMTMsMCw3LjYzNS0zLjQyMiw3LjYzNS03LjYzNVY5LjkxNkM3OS4yNjgsNS43MDMsNzUuODQ2LDIuMjgxLDcxLjYzMywyLjI4MXogTTQzLjAwMSw5LjI1NGMwLTEuMDQzLDAuODQtMS44ODMsMS44ODQtMS44ODMNCgkJaDEwLjIzYzEuMDQzLDAsMS44ODQsMC44NCwxLjg4NCwxLjg4M3YwLjA1MWMwLDEuMDQzLTAuODQxLDEuODgzLTEuODg0LDEuODgzaC0xMC4yM2MtMS4wNDQsMC0xLjg4NC0wLjg0LTEuODg0LTEuODgzVjkuMjU0eg0KCQkgTTUwLDk0Ljg1NWMtMi4yNzgsMC00LjEzNi0xLjg1Ny00LjEzNi00LjEzNWMwLTIuMjc5LDEuODU3LTQuMTM1LDQuMTM2LTQuMTM1YzIuMjc3LDAsNC4xMzYsMS44NTUsNC4xMzYsNC4xMzUNCgkJQzU0LjEzNiw5Mi45OTgsNTIuMjc3LDk0Ljg1NSw1MCw5NC44NTV6IE03Mi45MDUsODIuNDQ5YzAsMC42OTktMC41NzMsMS4yNzEtMS4yNzIsMS4yNzFIMjguMzY3Yy0wLjcsMC0xLjI3Mi0wLjU3Mi0xLjI3Mi0xLjI3MQ0KCQlWMTcuNTUxYzAtMC43MDEsMC41NzItMS4yNzMsMS4yNzItMS4yNzNoNDMuMjY2YzAuNjk5LDAsMS4yNzIsMC41NzIsMS4yNzIsMS4yNzNWODIuNDQ5eiIvPg0KCTxwYXRoIGQ9Ik01MCwzNC4wOTRjLTguNDMzLDAtMTUuMjcxLDYuODM2LTE1LjI3MSwxNS4yN1M0MS41NjcsNjQuNjMzLDUwLDY0LjYzM3MxNS4yNzEtNi44MzYsMTUuMjcxLTE1LjI3DQoJCVM1OC40MzMsMzQuMDk0LDUwLDM0LjA5NHogTTUwLDYyLjA4OGMtNy4wMjgsMC0xMi43MjYtNS42OTUtMTIuNzI2LTEyLjcyNVM0Mi45NzIsMzYuNjM5LDUwLDM2LjYzOXMxMi43MjUsNS42OTUsMTIuNzI1LDEyLjcyNQ0KCQlTNTcuMDI4LDYyLjA4OCw1MCw2Mi4wODh6Ii8+DQoJPHBhdGggZD0iTTU1Ljg2NSw0OC43MzRsLTQuOTE2LTAuNTQ1bC0yLjI4OC02Ljg2M2MtMC4yMjMtMC42NjYtMC45MzctMS4wMjktMS42MDgtMC44MDVjLTAuNjY3LDAuMjIzLTEuMDI2LDAuOTQxLTAuODA1LDEuNjA5DQoJCWwyLjU0NSw3LjYzNWMwLjE1NywwLjQ3MSwwLjU3MywwLjgwOSwxLjA2NywwLjg2M2w1LjcyNywwLjYzN2MwLjA0NiwwLjAwNCwwLjA5MywwLjAwNiwwLjE0MSwwLjAwNmMwLjY0LDAsMS4xOTEtMC40OCwxLjI2NC0xLjEzMw0KCQlDNTcuMDY4LDQ5LjQzOSw1Ni41NjUsNDguODEzLDU1Ljg2NSw0OC43MzR6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==" style="width:64px;height:64px")
+													.media-body
+														h4.media-heading 
+															|#{reply.from.name}
+															span.text-info &nbsp;回复&nbsp;
+															|#{reply.to.name}:
+														p #{reply.content}
+							hr
+						#comments
+							form#commentForm(method="POST",action="/user/comment")
+								input(type="hidden",name="comment[movie]",value="#{movie._id}")
+								if user 	
+									input(type="hidden",name="comment[from]",value="#{user._id}")
+								.form-group
+									textarea.form-control(name ="comment[content]" row="3")
+								if user	
+									button.btn.btn-primary(type="submit") 提交
+								else
+									a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登录后评论
+			.col-md-5
+				dl.dl-horizontal
+					dt 电影名字
+					dd= movie.title
+					dt 导演
+					dd= movie.doctor
+					dt 国家
+					dd= movie.country
+					dt 语言
+					dd= movie.language
+					dt 上映年份
+					dd= movie.year
+					dt 简介
+					dd= movie.summary
+	script(src="/js/detail.js")			

@@ -1,0 +1,24 @@
+{
+  "name": "movie",
+  "authors": [
+    "jshaoyang"
+  ],
+  "description": "0.0.1",
+  "main": "app.js",
+  "keywords": [
+    "123456"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/libs"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
